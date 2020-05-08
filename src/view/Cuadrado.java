@@ -16,7 +16,7 @@ public class Cuadrado  implements Runnable  {
 		g= 255; 
 		b= 255; 
 		this.valor=valor; 
-		diry= 1; 
+		diry= -1; 
 		estoy = false; 
 		
 		
@@ -58,7 +58,13 @@ public class Cuadrado  implements Runnable  {
 	}
 	
 	public void mover() {
-		posy--; 
+		posy+=diry; 
+		if(posy<-20) {
+			diry*=-1; 
+		}
+		if(posy>400) {
+			diry*=-1; 
+		}
 		
 		
 		
