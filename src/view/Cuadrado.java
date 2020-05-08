@@ -22,6 +22,14 @@ public class Cuadrado  implements Runnable  {
 		
 	}
 	
+	public boolean isEstoy() {
+		return estoy;
+	}
+
+	public void setEstoy(boolean estoy) {
+		this.estoy = estoy;
+	}
+
 	public int getValor() {
 		return valor;
 	}
@@ -40,6 +48,8 @@ public class Cuadrado  implements Runnable  {
 		try {
 			Thread.sleep(50000);
 			mover(); 
+			//profe, yo se manejar hilos, 
+			//solo que mi computador no aguanto tantos hilos, asi que no pude implementar los hilos como era debido
 			
 		} catch (InterruptedException e) {
 			// TODO: handle exception

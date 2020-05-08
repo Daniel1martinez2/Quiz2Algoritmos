@@ -63,7 +63,8 @@ public class Main extends PApplet{
 					cuadrados[i][j].setB(0);
 					cuadrados[i][j].setR(0);
 					cuadrados[i][j].setG(0);
-					//cuadrados[i][j].mover();
+				
+					
 					
 				}
 			}
@@ -79,9 +80,20 @@ public class Main extends PApplet{
 				
 		
 				cuadrados[i][j].pintar();
+				
+				if(cuadrados[i][j].getValor()==2) {
+					if(cuadrados[i][j].isEstoy()==false) {
+						cuadrados[i][j].mover();
+						
+					}
+					
+				}
+				
+				
 			}
 			
 		}
+		
 		
 	
 		
@@ -89,8 +101,7 @@ public class Main extends PApplet{
 
 	}
 	
-	
-	public void mousePressed() {
+	public void paila() throws Exception1  {
 		for (int i = 0; i < 30; i++) {
 			for (int j = 0; j < 20; j++) {
 				int x= cuadrados[i][j].getPosx(); 
@@ -108,6 +119,13 @@ public class Main extends PApplet{
 						&& mouseY>y&&mouseY<y+20 && cuadrados[i][j].getValor()==2) {
 					
 					cuadrados[i][j].setR(255);
+					cuadrados[i][j].setEstoy(true);
+					
+					if(cuadrados[i][j].isEstoy()==true) {
+						
+						throw new Exception1("perdon estoy roto "); 
+						
+					}
 				
 					
 				}
@@ -118,6 +136,19 @@ public class Main extends PApplet{
 			}
 		}
 		
+		
+		
+	}
+	
+	
+	public void mousePressed() {
+
+		try {
+			paila();
+		} catch (Exception1 e) {
+			// TODO Auto-generated catch block
+			System.out.println(e.getMessage());
+		} 
 		
 		
 	}
